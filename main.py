@@ -84,28 +84,13 @@ print("Check 2: Data loading complete.\n")
 
 #complex_path = "./lex-simple-500-dataset/test/supreme_org_test.txt"
 if data_split == "test":
-    #complex_path = "./dataset/supreme_court/test/supreme_org_test.txt"
-    #masked_output_path = "./dataset/supreme_court/test/supreme_org_masked_test.pkl"
-    #simple_path = "./output_data/test/uslt_noss_supreme_test.txt"
-    complex_path = "./qual_deneme/qual_deneme.txt"
-    masked_output_path = "./qual_deneme/qual_deneme_masked.pkl"
-    simple_path = "./qual_deneme/output_data/qual_deneme_output.txt"
+    complex_path = "./dataset/supreme_court/test/supreme_org_test.txt"
+    masked_output_path = "./dataset/supreme_court/test/supreme_org_masked_test.pkl"
+    simple_path = "./output_data/test/uslt_noss_supreme_test.txt"
 else:
-    #complex_path = f"./dataset/supreme_court/{data_split}/supreme_{data_split}_org.txt"
-    #masked_output_path = f"./dataset/supreme_court/{data_split}/supreme_masked_{data_split}_org.pkl"
-    #simple_path = f"./output_data/{data_split}/supreme_{data_split}_uslt_noss.txt"
-    complex_path = "./qual_deneme/qual_deneme.txt"
-    masked_output_path = "./qual_deneme/qual_deneme_masked.pkl"
-    simple_path = "./qual_deneme/output_data/qual_deneme_output.txt"
-
-"""
-bert_weight = 3.00
-#bert_weight = 0
-lm_weight = 0.36
-cos_weight = 1.42
-freq_weight = 2.00
-len_weight = 4.61
-"""
+    complex_path = f"./dataset/supreme_court/{data_split}/supreme_{data_split}_org.txt"
+    masked_output_path = f"./dataset/supreme_court/{data_split}/supreme_masked_{data_split}_org.pkl"
+    simple_path = f"./output_data/{data_split}/supreme_{data_split}_uslt_noss.txt"
 
 if os.path.isfile(masked_output_path) and 1==0:
 #if os.path.isfile(masked_output_path):
@@ -134,11 +119,6 @@ all_suggestions = run_batched_suggestion_generation(dataloader, model, tokenizer
 print("all_suggestions")
 print(all_suggestions)
 sentence_model = load_sentence_model(model, device)
-#global_score_dict = score_substitutions(all_suggestions, 
-#                                        df_subtlex, complex_words, eng_words, 
-#                                        all_cleaned_texts, 
-#                                        model, sentence_model, tokenizer, glove,
-#                                        device)
 if num_suggestions <= 5:
     num_suggestions_filtered = num_suggestions  # Keep all candidates if we already have very few
 elif num_suggestions <= 10:
