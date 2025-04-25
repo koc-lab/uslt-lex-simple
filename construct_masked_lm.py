@@ -72,80 +72,12 @@ def mask_complex_words_word(text, tokenizer, complex_word_list, ner_checker, nlp
 
     return masked_text, cleaned_text, words_found, tokens_found, selection
 
-
-def mask_complex_words_word_old(text, tokenizer, complex_word_list, ner_checker, nlp_ner):
-    """
-    Replaces complex words in the text with [MASK] tokens for prediction.
-    Ensures that multi-word complex words are correctly handled and checks NER.
-    Applies masking at the token level rather than masking the words.
-    """
-    words_found = []  # To track words being replaced
-    tokens_found = [] # To track tokens being replaced
-    replaced_tokens = []  # To track token replacements
-    replaced_token_ids = [] # To track the ids of tokens being replaced
-    selection = []  # To track the indices of words that are replaced
-    
-    # Tokenize the original text and clean it
-    cleaned_text = re.sub('[^A-Za-z]+', ' ', text)  # Remove non-alphabetical characters
-    text_list = cleaned_text.split()
-    masked_text_list = copy.deepcopy(text_list)
-
-    cleaned_text_tokens = tokenizer.tokenize(cleaned_text)
-    text_tokens = tokenizer.tokenize(text)
-    masked_text_tokens = copy.deepcopy(cleaned_text_tokens)
-    masked_text = copy.deepcopy(cleaned_text)
-    #masked_text_tokens = copy.deepcopy(text_tokens)
-    #masked_text = copy.deepcopy(text)
-    
-    print("cleaned_text")
-    print(cleaned_text)
-    print("text_list")
-    print(text_list)
-
-    # Iterate over each word in word_list to find complex words in text
-    #for word in word_list:
-    #    if word in cleaned_text:
-    prefix_suffix_list = ["##ment", "##ly", "##ir"]
-    #prefix_suffix_list = ["##ment", "##ly", "##ir", "##ness", "##ity", "##ship", "##ful", "##less"]
-    for l in range(len(text_list)):
-        word = text_list[l]
-        word_tokenized = tokenizer.tokenize(word)
-        if word.lower() in complex_word_list or any(token.lstrip("#") in complex_word_list and token not in prefix_suffix_list for token in word_tokenized):
-            # Check if the word is a multi-word phrase or a complex word based on NER
-            #if (len(word.split()) >= 2 and word.split()[0] in complex_word_list) or (word in text_list and ner_checker(nlp_ner, text, word)):
-            if not(ner_checker(nlp_ner, text, word)): # makes sure that the word is not recognized as an entity
-                word_tokens = word_tokenized
-            else:
-                continue  # Skip non-complex words or NER entities
-                
-            # Replace the complex word in (cleaned_)text with [MASK]
-            #text = re.sub(r'\b' + re.escape(word) + r'\b', '[MASK]', text)
-            masked_text_list[l] = "[MASK]"
-
-            # Step 5: Convert masked tokens back to a string
-            #print("masked_text_tokens")
-            #print(masked_text_tokens)
-            masked_text = " ".join(masked_text_list)
-            #print("masked_text")
-            #print(masked_text)
-            words_found.append(word)
-            #tokens_found.extend(word_tokens)
-            tokens_found.append(word)
-            #print("words_found")
-            #print(words_found)
-                
-    print("words_found")
-    print(words_found)
-    print("tokens_found")
-    print(tokens_found)
-
-    return masked_text, cleaned_text, words_found, tokens_found, selection
-
 def mask_complex_words_token(text, tokenizer, complex_word_list, ner_checker, nlp_ner):
     """
     Replaces complex words in the text with [MASK] tokens for prediction.
     Ensures that multi-word complex words are correctly handled and checks NER.
     Applies masking at the token level rather than masking the words.
+    Currently not in use.
     """
     words_found = []  # To track words being replaced
     tokens_found = [] # To track tokens being replaced

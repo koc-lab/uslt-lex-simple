@@ -5,6 +5,9 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 from typing import Optional
 
+# Contains functions to load word stats based on Zipfian value analysis, to load the original legal sentences and the CWI data, and a custom MaskedSentenceDataset class to handle CWI data.
+
+# word_stats functions
 def load_data_stats(word_stats_path):
     df_subtlex = pd.read_excel(f"{word_stats_path}SUBTLEX_frequency.xlsx")
     subtlex_words = []
@@ -58,11 +61,13 @@ def load_data_stats(word_stats_path):
     print("Check 2: complex words obtained")
     return df_subtlex, df_law, eng_words, complex_words
 
+# function to load the original complex legal sentences from file
 def load_legal_sentences(input_path):
     input_file = open(input_path, "r", encoding="utf-8", errors="ignore")
     legal_sentences = input_file.readlines()
     return legal_sentences
 
+# to load the CWI data if it has been saved in a .pkl file
 def load_cwi_data(batch_size = 1, file_path: Optional[str] = None, dataset: Optional[Dataset] = None, collate_fn = None):
     """
     Loads masked sentence dataset and returns a PyTorch DataLoader.
@@ -73,6 +78,7 @@ def load_cwi_data(batch_size = 1, file_path: Optional[str] = None, dataset: Opti
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
     return dataloader
 
+# MaskedSentenceDataset class and related collate function
 def custom_collate_fn(batch):
     """
     Custom collate function to correctly batch tensor-based masked_inputs 
