@@ -167,7 +167,7 @@ all_suggestion_scores = score_substitutions(all_filtered_suggestions,
                                             device)
 
 """
-# single score being dropped (ablation study)
+# Main Option 1: single score being dropped (ablation study)
 print("Ablation study being conducted by dropping one score at each time.")
 keys = ["bert", "cos", "lm", "freq", "sentence"]
 opt_src = "caselaw_onlybert"
@@ -222,7 +222,7 @@ for weight_idx in range(len(weights)):
     #print(std_scores)
 """
 
-# manually entered weights
+# Main Option 2: manually entered weights
 bert_weight = 0.2272155769544756
 cos_weight = 0.13954983832511
 lm_weight = 0.0424107596140726
@@ -264,7 +264,7 @@ print(std_scores)
 """
 
 """
-# trials based on the weights found during hyperparameter optimization
+# Main Option 3: trials based on the weights found during hyperparameter optimization
 opt_src = "caselaw_onlybert"
 #opt_src = "caselaw_onlybertprec"
 #opt_src = "caselaw_bertfkgl"
