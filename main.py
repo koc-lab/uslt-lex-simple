@@ -82,7 +82,7 @@ df_subtlex, df_law, eng_words, complex_words = load_data_stats(word_stats_path)
 
 print("Check 2: Data loading complete.\n")
 
-#complex_path = "./lex-simple-500-dataset/test/supreme_org_test.txt"
+#complex_path = "./lex-simple-dataset/test/supreme_org_test.txt"
 if data_split == "test":
     complex_path = "./dataset/supreme_court/test/supreme_org_test.txt"
     masked_output_path = "./dataset/supreme_court/test/supreme_org_masked_test.pkl"

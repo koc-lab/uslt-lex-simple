@@ -11,10 +11,10 @@ import numpy as np
 import pandas as pd
 import random
 
-input_file_og = open("lex-simple-500-dataset/test/supreme_org_test.txt","r").read().strip().split('\n')
-ref_file1_og = open("lex-simple-500-dataset/test/supreme_test_ref1.txt","r").read().strip().split('\n')
-ref_file2_og = open("lex-simple-500-dataset/test/supreme_test_ref2.txt","r").read().strip().split('\n')
-ref_file3_og = open("lex-simple-500-dataset/test/supreme_test_ref3.txt","r").read().strip().split('\n')
+input_file_og = open("lex-simple-dataset/test/supreme_org_test.txt","r").read().strip().split('\n')
+ref_file1_og = open("lex-simple-dataset/test/supreme_test_ref1.txt","r").read().strip().split('\n')
+ref_file2_og = open("lex-simple-dataset/test/supreme_test_ref2.txt","r").read().strip().split('\n')
+ref_file3_og = open("lex-simple-dataset/test/supreme_test_ref3.txt","r").read().strip().split('\n')
 uslt_noss_wo_bert_og = open("ablation_output_data/test/uslt_noss_supreme_test_wo_bert.txt","r").read().strip().split('\n')
 uslt_noss_wo_cos_sim_og = open("ablation_output_data/test/uslt_noss_supreme_test_wo_cos.txt","r").read().strip().split('\n')
 uslt_noss_wo_lm_loss_og = open("ablation_output_data/test/uslt_noss_supreme_test_wo_lm.txt","r").read().strip().split('\n')

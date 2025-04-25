@@ -12,10 +12,10 @@ import pandas as pd
 import random
 
 # test set paths
-input_file_og = open("lex-simple-500-dataset/test/supreme_org_test.txt","r").read().strip().split('\n')
-ref_file1_og = open("lex-simple-500-dataset/test/supreme_test_ref1.txt","r").read().strip().split('\n')
-ref_file2_og = open("lex-simple-500-dataset/test/supreme_test_ref2.txt","r").read().strip().split('\n')
-ref_file3_og = open("lex-simple-500-dataset/test/supreme_test_ref3.txt","r").read().strip().split('\n')
+input_file_og = open("lex-simple-dataset/test/supreme_org_test.txt","r").read().strip().split('\n')
+ref_file1_og = open("lex-simple-dataset/test/supreme_test_ref1.txt","r").read().strip().split('\n')
+ref_file2_og = open("lex-simple-dataset/test/supreme_test_ref2.txt","r").read().strip().split('\n')
+ref_file3_og = open("lex-simple-dataset/test/supreme_test_ref3.txt","r").read().strip().split('\n')
 muss_og = open("output_data/test/muss_supreme_test.txt","r").read().strip().split('\n')
 access_og = open("output_data/test/access_supreme_test.txt","r").read().strip().split('\n')
 recls_outputs_og = open("output_data/test/recls_supreme_test.txt","r").read().strip().split('\n')
@@ -27,10 +27,10 @@ uslt_og = open("output_data/test/uslt_noss_supreme_test.txt","r").read().strip()
 uslt_ss_og = open("output_data/test/uslt_ss_supreme_test.txt","r").read().strip().split('\n')
 
 # val set paths
-#input_file_og = open("lex-simple-500-dataset/val/supreme_org_val.txt","r").read().strip().split('\n')
-#ref_file1_og = open("lex-simple-500-dataset/val/supreme_val_ref1.txt","r").read().strip().split('\n')
-#ref_file2_og = open("lex-simple-500-dataset/val/supreme_val_ref2.txt","r").read().strip().split('\n')
-#ref_file3_og = open("lex-simple-500-dataset/val/supreme_val_ref3.txt","r").read().strip().split('\n')
+#input_file_og = open("lex-simple-dataset/val/supreme_org_val.txt","r").read().strip().split('\n')
+#ref_file1_og = open("lex-simple-dataset/val/supreme_val_ref1.txt","r").read().strip().split('\n')
+#ref_file2_og = open("lex-simple-dataset/val/supreme_val_ref2.txt","r").read().strip().split('\n')
+#ref_file3_og = open("lex-simple-dataset/val/supreme_val_ref3.txt","r").read().strip().split('\n')
 #muss_og = open("output_data/val/supreme_val_muss.txt","r").read().strip().split('\n')
 #access_og = open("output_data/val/supreme_val_access.txt","r").read().strip().split('\n')
 #recls_outputs_og = open("output_data/val/supreme_val_recls.txt","r").read().strip().split('\n')
