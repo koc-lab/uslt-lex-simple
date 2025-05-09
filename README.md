@@ -2,7 +2,7 @@
 
 This repository contains the new implementation of "Unsupervised Simplification of Legal Texts" (USLT) submitted to IEEE/ACM Transactions on Audio, Speech, and Language Processing. 
 
-For earlier versions, you can refer to [https://github.com/koclab/lex-simple](https://github.com/koclab/lex-simple). 
+For earlier versions, you can refer to [https://github.com/koc-lab/lex-simple](https://github.com/koc-lab/lex-simple). 
 
 ## lex-simple dataset
 
